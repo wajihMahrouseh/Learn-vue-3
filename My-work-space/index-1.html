@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>
+            <!-- v-model is not just binding the value to the "greeting"
+                but it also handles listening for when the value is changed 
+            -->
+            <input type="text" v-model="greeting">
+        </p>
+        <p>
+            {{ greeting }} ({{ greeting.length }})
+        </p>
+    </div>
+
+    <!-- initialize Vue -->
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    greeting: 'Hello World!'
+                };
+            },
+            mounted() {
+                setTimeout(() => {
+                    this.greeting = 'Vue 3';
+                }, 3000);
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
